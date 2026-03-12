@@ -42,6 +42,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -2123,26 +2124,57 @@ ul {
   .sticky-left {
     gap: 12px;
   }
+
+  .process-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .process-tabs::before {
+    display: none;
+  }
+
+  .process-tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 }
 
-/* Responsive — small phones */
-@media (max-width: 359px) {
+/* Responsive — phones (480px and below) */
+@media (max-width: 480px) {
   .section-inner {
-    padding: 48px 16px;
+    padding: 36px 20px;
   }
   .nav-container {
-    padding: 0 16px;
+    padding: 0 20px;
   }
   .sticky-container {
-    padding: 12px 16px;
+    padding: 12px 20px;
   }
   .applications-carousel-wrapper,
   .testimonials-carousel {
-    padding-left: 16px;
+    padding-left: 20px;
+  }
+
+  /* mobile nav: make drawer full-width so it doesn't stick out on tiny viewports */
+  .nav-links {
+    width: 100%;
+    max-width: none;
+    right: -100%;
+  }
+
+  .nav-links.open {
+    right: 0;
   }
 
   .section-heading {
     font-size: 1.5rem;
+  }
+
+  .section-sub {
+    font-size: 15px;
   }
 
   .product-title {
@@ -2158,42 +2190,66 @@ ul {
   }
 
   .cert-badges {
+    flex-wrap: wrap;
     gap: 8px;
   }
 
   .cert-badge {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     padding: 4px 10px;
   }
 
+  .company-logos {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
   .process-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: 6px;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .process-tabs::before {
+    display: none;
   }
 
   .process-tab {
     padding: 8px 14px;
     font-size: 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .faq-section .section-heading,
+  .applications-section .section-heading {
+    font-size: 28px;
   }
 
   .contact-left {
     padding: 40px 24px;
   }
 
+  .contact-left h2 {
+    font-size: 28px;
+  }
+
   .contact-right {
     padding: 28px 20px;
   }
 
-  .company-logos {
-    gap: 16px;
-  }
-
-  .company-logos img {
-    height: 24px;
+  .footer-tagline {
+    font-size: 18px;
+    max-width: none;
   }
 
   .app-card {
-    flex: 0 0 220px;
-    height: 300px;
+    flex: 0 0 230px;
+    height: 310px;
   }
 
   .testimonial-card {
@@ -2203,6 +2259,43 @@ ul {
   .thumbnail {
     width: 48px;
     height: 48px;
+  }
+
+  .specs-table-wrapper {
+    margin: 0 -20px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+/* Responsive — very small phones */
+@media (max-width: 359px) {
+  .section-inner {
+    padding: 32px 14px;
+  }
+  .nav-container {
+    padding: 0 14px;
+  }
+  .sticky-container {
+    padding: 12px 14px;
+  }
+  .applications-carousel-wrapper,
+  .testimonials-carousel {
+    padding-left: 14px;
+  }
+
+  .app-card {
+    flex: 0 0 200px;
+    height: 280px;
+  }
+
+  .contact-left {
+    padding: 32px 16px;
+  }
+
+  .contact-right {
+    padding: 24px 16px;
   }
 }
 
